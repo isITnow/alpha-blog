@@ -33,3 +33,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Dependency directories
+node_modules/
+jspm_packages/
+./node_modules/.bin/prettier --write '**/*'
