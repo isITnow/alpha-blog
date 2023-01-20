@@ -49,7 +49,11 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      flash.alert = "User not found"
+      redirect_to users_path
+    end
   end
 
   def user_params
