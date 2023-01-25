@@ -25,6 +25,13 @@
           </div>
         </div>
 
+        <div class="form-group row mb-3">
+          <%= f.label :password_confirmation, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+            <%= f.password_field :password_confirmation, class: "form-control shadow rounded", placeholder: "Confirm pssword" %>
+          </div>
+        </div>
+
         <div class="form-group row justify-content-center">
           <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-outline-light btn-lg") %>
         </div>
