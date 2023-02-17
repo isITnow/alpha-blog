@@ -9,10 +9,10 @@ class ArticlesController < ApplicationController
   def index
     if params[:query].present?
       @articles =
-        Article.where("title LIKE ?", "%#{params[:query]}%").paginate(
-          page: params[:page],
-          per_page: 5,
-        )
+        Article.where(
+          "title LIKE ?",
+          Article.sanitize_sql_like(params[:query]) + "%",
+        ).paginate(page: params[:page], per_page: 5)
     else
       @articles =
         Article.order("updated_at DESC").paginate(
