@@ -43,11 +43,11 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find_by(id: params[:id])
-    if @category.nil?
-      flash.alert = "Category was not found"
-      redirect_to categories_path
-    end
+    @category = Category.find params[:id]
+    # if @category.nil?
+    #   flash.alert = "Category was not found"
+    #   redirect_to categories_path
+    # end
   end
 
   def require_admin
