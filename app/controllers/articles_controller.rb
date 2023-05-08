@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
         ).paginate(page: params[:page], per_page: 5)
     else
       @articles =
-        Article.order("updated_at DESC").paginate(
+        Article.paginate(
           page: params[:page],
           per_page: 5,
         )
@@ -57,11 +57,11 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find_by(id: params[:id])
-    if @article.nil?
-      flash.alert = "Article was not found"
-      redirect_to articles_path
-    end
+    @article = Article.find params[:id] 
+    # if @article.nil?
+    #   flash.alert = "Article was not found"
+    #   redirect_to articles_path
+    # end
   end
 
   def article_params
