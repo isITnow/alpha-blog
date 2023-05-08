@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ErrorHandling
   helper_method :current_user, :logged_in?
 
   def current_user
